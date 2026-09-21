@@ -69,7 +69,7 @@ def health():
 
 @app.post("/predict", response_model=PredictionResponse)
 def predict(features: HouseFeatures):
-    row = features.dict()
+    row = features.model_dump()
     row["property_age"] = 2026 - row.pop("year_built")
     row["sqft_per_bedroom"] = row["sqft"] / row["bedrooms"]
     row["has_garden"] = int(row["has_garden"])
