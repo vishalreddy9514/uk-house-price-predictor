@@ -23,3 +23,16 @@ Held-out test performance: MAE £21,719, R² 0.974.
 - Categorical features (region, property type) are one-hot encoded; numeric features are standardised, both handled inside a single sklearn pipeline so there's no mismatch between training and inference.
 
 ## Project structure
+uk-house-price-predictor/
+data/ (generated dataset, not tracked in git)
+src/
+generate_data.py (dataset generator)
+train.py (feature engineering, training, model comparison)
+api/
+main.py (FastAPI backend)
+app/
+streamlit_app.py (frontend)
+models/ (trained model, not tracked in git)
+requirements.txt
+Dockerfile
+docs/screenshot.png
