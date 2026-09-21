@@ -14,8 +14,11 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
 from xgboost import XGBRegressor
 
+import os
+
 DATA_PATH = "data/uk_housing.csv"
 MODEL_PATH = "models/model.joblib"
+os.makedirs("models", exist_ok=True)
 
 df = pd.read_csv(DATA_PATH)
 

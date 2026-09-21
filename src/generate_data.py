@@ -11,6 +11,8 @@ import numpy as np
 import pandas as pd
 
 np.random.seed(42)
+import os
+os.makedirs("data", exist_ok=True)
 N = 6000
 
 regions = ["London", "South East", "South West", "North West",
