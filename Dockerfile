@@ -1,7 +1,3 @@
-# Dockerfile builds the FastAPI backend only.
-# (The Streamlit frontend is deployed separately on Streamlit Community Cloud —
-#  see README for why that split is the easiest free deployment path.)
-
 FROM python:3.11-slim
 
 WORKDIR /app
@@ -9,8 +5,10 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
+COPY src/ ./src/
 COPY api/ ./api/
-COPY models/ ./models/
+
+RUN python src/generate_data.py && python src/train.py
 
 EXPOSE 8000
 
